@@ -64,6 +64,7 @@ The project is organized as follows:
 - Parameters: id (integer) - ID of the drink.
 - Response format: JSON
 
+### Create a specific drink:
 - URL: /drinks/
 - Method: POST
 - Description: Adds a new drink to the database.
