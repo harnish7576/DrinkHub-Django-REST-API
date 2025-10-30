@@ -51,52 +51,81 @@ The project is organized as follows:
 
 ## API Endpoints
 
-### List all drinks:
-- URL: /drinks/
-- Method: GET
-- Description: Fetches a list of all drinks.
-- Response format: JSON
+### List All Drinks
+**URL:** `/drinks/`  
+**Method:** `GET`  
+**Description:** Fetches a list of all drinks.  
+**Response Format:** `JSON`
 
-### Get a specific drink:
-- URL: /drinks/<int:id>
-- Method: GET
-- Description: Retrieves details of a specific drink by its ID.
-- Parameters: id (integer) - ID of the drink.
-- Response format: JSON
+---
 
-### Create a specific drink:
-- URL: /drinks/
-- Method: POST
-- Description: Adds a new drink to the database.
-- Request body format: JSON
-  1. name (string): Name of the drink.
-  2. description (string): Description of the drink.
-- Response format: JSON
+### Get a Specific Drink
+**URL:** `/drinks/<int:id>`  
+**Method:** `GET`  
+**Description:** Retrieves details of a specific drink by its ID.  
+**Parameters:**  
+- `id` *(integer)* — ID of the drink.
+  
+**Response Format:** `JSON`
 
-### Update an existing drink:
-- URL: /drinks/<int:id>
-- Method: PUT
-- Description: Updates the details of an existing drink by its ID.
-- Parameters: id (integer) - ID of the drink to be updated.
-- Request body format: JSON
-  1. name (string): Updated name of the drink.  
-  2. description (string): Updated description of the drink.
-- Response format: JSON
+---
 
-### Delete a drink:
-- URL: /drinks/<int:id>
-- Method: DELETE
-- Description: Deletes a specific drink by its ID.
-- Parameters: id (integer) - ID of the drink to be deleted.
-- Response format: None (204 No Content)
+### Create a Drink
+**URL:** `/drinks/`  
+**Method:** `POST`  
+**Description:** Adds a new drink to the database.  
+**Request Body Format:** `JSON`  
+```json
+{
+  "name": "string",
+  "description": "string"
+}
+```
+**Request Body Format:** `JSON`
+
+---
+
+### Update an Existing Drink
+**URL:** `/drinks/<int:id>`  
+**Method:** `PUT`  
+**Description:** Updates the details of an existing drink by its ID.  
+
+**Parameters:**  
+- `id` *(integer)* — ID of the drink to be updated.  
+
+**Request Body Format:** `JSON`  
+```json
+{
+  "name": "string",
+  "description": "string"
+}
+```
+**Request Body Format:** `JSON`
+
+---
+
+### Delete a Drink
+**URL:** `/drinks/<int:id>`  
+**Method:** `DELETE`  
+**Description:** Deletes a specific drink by its ID.
+
+**Parameters**
+- `id` *(integer)* — ID of the drink to be deleted.
+
+**Responses**
+- `204 No Content` — Successfully deleted; no response body.
+- `404 Not Found` — No drink found with the given ID.
+- `400 Bad Request` — Invalid ID format.
+
+---
 
 ## Using Postman
 You can use Postman to test the API endpoints and perform various HTTP methods (GET, POST, PUT, DELETE) on the drinks resource. Set the base URL to `http://127.0.0.1:8000` and append the API endpoints listed above to interact with the drinks resource.
 
-## Demonstration
+## Run Locally
 To see the use cases of this project in action, you can run the `consume.py` script located outside the drinks folder in the project directory. This script makes use of the requests library to interact with the API and demonstrates how to list all drinks. Before running the script, ensure that the Django development server is running. `python consume.py`
 
-### Note
+#### Note
 
 This project is a basic demonstration of a Django RESTful API for managing drinks. In a real-world scenario, you may need to implement authentication and authorization mechanisms to secure the API endpoints and ensure that only authorized users can create, update, and delete drinks. Additionally, it is recommended to use a production-ready database like PostgreSQL rather than the default SQLite database for production deployments.
 
